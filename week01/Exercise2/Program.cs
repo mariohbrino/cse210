@@ -65,7 +65,7 @@ class Program
 
     static void Main(string[] args)
     {
-        if (args[0] == "testing")
+        if (args.Length > 0 && args[0] == "testing")
         {
             List<int> gradeList = new List<int>() { 50, 63, 69, 73, 79, 83, 89, 93, 99 };
 
