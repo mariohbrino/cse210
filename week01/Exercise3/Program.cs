@@ -29,7 +29,7 @@ class Program
     public static void StartGame()
     {
         int magic_number = GenerateMagicNumber();
-        bool result = true;
+        bool result;
         int tries = 0;
 
         do
@@ -47,7 +47,7 @@ class Program
         Console.Write("Are you still playing? (yes, no) ");
         string playing = Console.ReadLine();
 
-        if (playing.ToLower() == "yes")
+        if (string.Equals(playing.ToLower(), "yes"))
         {
             return true;
         }
@@ -57,7 +57,7 @@ class Program
 
     static void Main(string[] args)
     {
-        bool playing = true;
+        bool playing;
 
         do
         {
