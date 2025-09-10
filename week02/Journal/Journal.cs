@@ -5,7 +5,7 @@ class Journal
 {
     private readonly List<Entry> _entries = [];
 
-    public void Record()
+    public void RecordEntry()
     {
         PromptGenerator promptGenerator = new PromptGenerator();
         string promptValue = promptGenerator.GetRandomPrompt();
@@ -17,18 +17,18 @@ class Journal
             {
                 _prompt = promptValue,
                 _response = response,
-                _createdAt = now.ToString("yyyy-MM-dd"),
+                _createdAt = now.ToString("yyyy/mm/dd"),
             }
         );
     }
 
-    public void DisplayAll()
+    public void DisplayEntries()
     {
         if (_entries.Count > 0)
         {
             foreach (var (prompt, response, createdAt) in _entries)
             {
-                Console.WriteLine($"{createdAt} - Prompt: {prompt}");
+                Console.WriteLine($"Date: {createdAt} - Prompt: {prompt}");
                 Console.WriteLine(response);
                 Console.WriteLine();
             }
@@ -55,6 +55,10 @@ class Journal
                 }
                 Console.WriteLine($"[{_entries.Count}] were saved into {filname}.");
             }
+            else
+            {
+                Console.WriteLine("No entries found. Register entries or load from file before saving.");
+            }
         }
     }
 
@@ -63,7 +67,7 @@ class Journal
         Console.WriteLine("What is the filename?");
         string filname = Console.ReadLine();
 
-        if (filname != "")
+        if (filname != "" && !filname.Contains(".json"))
         {
             if (File.Exists(filname))
             {
@@ -76,9 +80,9 @@ class Journal
                     _entries.Add(
                         new Entry
                         {
-                            _prompt = parts[0],
+                            _prompt = parts[2],
                             _response = parts[1],
-                            _createdAt = parts[2],
+                            _createdAt = parts[0],
                         }
                     );
                 }

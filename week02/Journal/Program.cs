@@ -46,10 +46,10 @@ class Program
             switch (choise)
             {
                 case 1:
-                    journal.Record();
+                    journal.RecordEntry();
                     break;
                 case 2:
-                    journal.DisplayAll();
+                    journal.DisplayEntries();
                     break;
                 case 3:
                     journal.LoadFromFile();
