@@ -27,11 +27,9 @@ class Journal
     {
         if (_entries.Count > 0)
         {
-            foreach (var (prompt, response, createdAt) in _entries)
+            foreach (Entry entry in _entries)
             {
-                Console.WriteLine($"Date: {createdAt} - Prompt: {prompt}");
-                Console.WriteLine(response);
-                Console.WriteLine();
+                entry.DisplayEntry();
             }
         }
         else

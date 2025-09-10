@@ -10,6 +10,13 @@ class Entry
     [JsonPropertyName("create_at")]
     public string _createdAt { get; set; }
 
+    public void DisplayEntry()
+    {
+        Console.WriteLine($"Date: {_createdAt} - Prompt: {_prompt}");
+        Console.WriteLine(_response);
+        Console.WriteLine();
+    }
+
     public override string ToString()
     {
         return string.Join("|", _createdAt, _response, _prompt);
