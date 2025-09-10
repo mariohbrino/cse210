@@ -10,7 +10,8 @@ class Program
             new Choise { _index = 2, _name = "Display" },
             new Choise { _index = 3, _name = "Load" },
             new Choise { _index = 4, _name = "Save" },
-            new Choise { _index = 5, _name = "Quit" },
+            new Choise { _index = 5, _name = "Save as Json" },
+            new Choise { _index = 6, _name = "Quit" },
         ];
 
         Console.WriteLine("Please select one of the following choices:");
@@ -58,6 +59,9 @@ class Program
                     journal.SaveToFile();
                     break;
                 case 5:
+                    journal.SaveToJsonFile();
+                    break;
+                case 6:
                     Console.WriteLine("Bye, see you again.");
                     response = false;
                     break;

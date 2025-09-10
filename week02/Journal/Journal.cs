@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text.Json;
 
 class Journal
 {
@@ -96,6 +97,37 @@ class Journal
         else
         {
             Console.WriteLine("Invalid input. Please provide a valid filename.");
+        }
+    }
+
+    public string Serialize()
+    {
+        return JsonSerializer.Serialize(
+            _entries,
+            new JsonSerializerOptions { WriteIndented = true }
+        );
+    }
+
+    public void SaveToJsonFile()
+    {
+        Console.WriteLine("What is the filename?");
+        string filname = Console.ReadLine();
+
+        if (filname != "")
+        {
+            if (_entries.Count > 0)
+            {
+                if (!filname.Contains(".json"))
+                {
+                    filname += ".json";
+                }
+                using StreamWriter outputFile = new StreamWriter(filname);
+                outputFile.Write(Serialize());
+            }
+            else
+            {
+                Console.WriteLine("No entries found. Register entries or load from file before saving.");
+            }
         }
     }
 }
