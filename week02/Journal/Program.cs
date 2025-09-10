@@ -1,6 +1,37 @@
 using System;
 using System.Net;
 
+// Requirements:
+// 1. Principle: Journal Abstraction
+//   A class models the responsibilities of a journal and does not include items that do not pertain
+//   to a journal.
+// 2. Principle: Entry Abstraction
+//   A class models the responsibilities of an entry and does not include items that do not pertain to
+//   an entry.
+// 3. Functionality: Journal Writing
+//   A journal entry is written and stored along with the date.
+// 4. Functionality: Journal Display
+//   All journal entries can be displayed along with the date and prompt associated with that entry.
+// 5. Functionality: Prompt Generation
+//  A set of writing prompts is chosen from randomly and displayed.
+// 6. Functionality: Saving
+//   The journal can be saved to a file.
+// 7. Functionality: Loading
+//   The journal can be loaded from a file.
+// 8. Style: Whitespace and File Organization
+//   Each class is defined in its own file and the name of the file exactly matches the class name.
+//   Vertical and horizontal whitespace (blank lines, indentation, braces) is correct throughout the
+//   program.
+// 9. Style: Naming Conventions
+//   Classes and methods use TitleCase, member variables use _underscoreCamelCase, local variables use
+//   camelCase.
+// 10. Shows creativity and exceeds core requirements
+//   The program exceeds the core requirements as explained in comments in the Program.cs
+
+// Creativity:
+// Save entries to json file.
+// Defined a Choise abstraction for menu list.
+
 class Program
 {
     private static int SelectMenu()
@@ -34,7 +65,7 @@ class Program
 
         return 0;
     }
-    
+
     private static void DisplayMenu()
     {
         bool response = true;
