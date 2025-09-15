@@ -42,8 +42,8 @@ class Scripture
             string text = string.Join(" ", [.. _words.Select(word => word.GetDisplayText())]);
             Console.WriteLine($"{_reference.ToString()} {text}");
             Console.WriteLine("Press enter to continue or type 'quit' to finish:");
-            string request = Console.ReadLine();
-            if (request == "quit" || IsCompletelyHidden())
+            string response = Console.ReadLine();
+            if (response.ToLower() == "quit" || IsCompletelyHidden())
                 break;
             HideRadomWords(3);
             Console.Clear();
