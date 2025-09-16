@@ -1,9 +1,9 @@
 using System;
 
-class Choice
+class Choice(int index, string name)
 {
-    public int _index { get; set; }
-    public string _name { get; set; }
+    private int _index { get; set; } = index;
+    private string _name { get; set; } = name;
 
     public void Deconstruct(out int index, out string name)
     {

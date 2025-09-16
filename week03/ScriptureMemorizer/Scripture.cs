@@ -22,7 +22,7 @@ class Scripture
         }
     }
 
-    public void HideRadomWords(int numberToHide)
+    public void HideRandomWords(int numberToHide)
     {
         Random random = new Random();
         for (int iteration = 1; iteration <= numberToHide; iteration++)
@@ -35,19 +35,43 @@ class Scripture
         }
     }
 
+    public void ReverseHideWords()
+    {
+        List<Word> hiddenWords = [.. _words.Where(word => word.IsHidden())];
+        foreach (Word word in hiddenWords)
+        {
+            word.Show();
+        }
+    }
+
     public void GetDisplayText()
     {
+        bool completed = false;
         do
         {
             string text = string.Join(" ", [.. _words.Select(word => word.GetDisplayText())]);
             Console.WriteLine($"{_reference.ToString()} {text}");
             Console.WriteLine("Press enter to continue or type 'quit' to finish:");
             string response = Console.ReadLine();
-            if (response.ToLower() == "quit" || IsCompletelyHidden())
+
+            // Check if the user wants to quit
+            if (response.ToLower() == "quit")
+            {
+                completed = true;
                 break;
-            HideRadomWords(3);
+            }
+
+            // Hide three random words
+            HideRandomWords(3);
             Console.Clear();
-        } while (true);
+
+            // Verify if all words are hidden and complete the loop
+            if (IsCompletelyHidden())
+            {
+                completed = true;
+                break;
+            }
+        } while (completed == false);
     }
 
     public bool IsCompletelyHidden()

@@ -30,19 +30,19 @@ using System.Net;
 
 // Creativity:
 // Save entries to json file.
-// Defined a Choise abstraction for menu list.
+// Defined a Choice abstraction for menu list.
 
 class Program
 {
     private static int SelectMenu()
     {
-        List<Choise> choices = [
-            new Choise { _index = 1, _name = "Write" },
-            new Choise { _index = 2, _name = "Display" },
-            new Choise { _index = 3, _name = "Load" },
-            new Choise { _index = 4, _name = "Save" },
-            new Choise { _index = 5, _name = "Save as Json" },
-            new Choise { _index = 6, _name = "Quit" },
+        List<Choice> choices = [
+            new Choice { _index = 1, _name = "Write" },
+            new Choice { _index = 2, _name = "Display" },
+            new Choice { _index = 3, _name = "Load" },
+            new Choice { _index = 4, _name = "Save" },
+            new Choice { _index = 5, _name = "Save as Json" },
+            new Choice { _index = 6, _name = "Quit" },
         ];
 
         Console.WriteLine("Please select one of the following choices:");
@@ -74,8 +74,8 @@ class Program
 
         do
         {
-            int choise = SelectMenu();
-            switch (choise)
+            int choice = SelectMenu();
+            switch (choice)
             {
                 case 1:
                     journal.RecordEntry();
