@@ -92,6 +92,19 @@ namespace Mindfulness
             }
         }
 
+        public static void PauseUntilEnter()
+        {
+            while (true)
+            {
+                Console.WriteLine("When you have something in mind, press enter to continue.");
+                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                if (keyInfo.Key == ConsoleKey.Enter)
+                {
+                    break;
+                }
+            }
+        }
+
         public virtual void StartActivity()
         {
             DisplayStartMessage();
