@@ -27,6 +27,9 @@ namespace Sandbox
 
             Book book3 = new Book();
             Console.WriteLine(book3.GetBookInfo());
+
+            Airplane airplane = new Airplane();
+            airplane.Flying();
         }
     }
 }
