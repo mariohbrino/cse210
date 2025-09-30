@@ -1,6 +1,14 @@
 using System;
 using System.Collections.Generic;
 
+// Enhancements:
+// 1. Menu class to handle user choices and navigation.
+// 2. Choice class to represent each menu option.
+// 3. Improved user prompts and messages for better engagement.
+// 4. Ponder class to encapsulate reflection questions.
+//  - Make sure no random prompts/questions are selected until
+//    they have all been used at least once in that session.
+
 namespace Mindfulness
 {
     class Program
@@ -24,15 +32,15 @@ namespace Mindfulness
                 ],
                 ponders:
                 [
-                    "Why was this experience meaningful to you?",
-                    "Have you ever done anything like this before?",
-                    "How did you get started?",
-                    "How did you feel when it was complete?",
-                    "What made this time different than other times when you were not as successful?",
-                    "What is your favorite thing about this experience?",
-                    "What could you learn from this experience that applies to other situations?",
-                    "What did you learn about yourself through this experience?",
-                    "How can you keep this experience in mind in the future?"
+                    new Ponder("Why was this experience meaningful to you?"),
+                    new Ponder("Have you ever done anything like this before?"),
+                    new Ponder("How did you get started?"),
+                    new Ponder("How did you feel when it was complete?"),
+                    new Ponder("What made this time different than other times when you were not as successful?"),
+                    new Ponder("What is your favorite thing about this experience?"),
+                    new Ponder("What could you learn from this experience that applies to other situations?"),
+                    new Ponder("What did you learn about yourself through this experience?"),
+                    new Ponder("How can you keep this experience in mind in the future?")
                 ]
             );
 

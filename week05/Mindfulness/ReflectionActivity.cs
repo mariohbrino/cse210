@@ -5,7 +5,7 @@ namespace Mindfulness
 {
     class ReflectionActivity : DrawingActivity
     {
-        private List<string> _ponders = [];
+        private List<Ponder> _ponders = new List<Ponder>();
 
         public ReflectionActivity(
             string title,
@@ -16,7 +16,7 @@ namespace Mindfulness
             string title,
             string description,
             List<string> messages,
-            List<string> ponders
+            List<Ponder> ponders
         ) : base(title, description)
         {
             foreach (string message in messages)
@@ -24,24 +24,28 @@ namespace Mindfulness
                 SetMessage(message);
             }
 
-            foreach (string ponder in ponders)
+            foreach (Ponder ponder in ponders)
             {
                 SetPonder(ponder);
             }
         }
 
-        public void SetPonder(string ponder) => _ponders.Add(ponder);
+        public void SetPonder(Ponder ponder) => _ponders.Add(ponder);
 
-        public string DrawingPonder()
+        public Ponder DrawingPonder()
         {
             Random random = new Random();
-            if (_ponders.Count > 0)
+
+            List<Ponder> unusedPonders = _ponders.FindAll(p => !p.IsUsed());
+
+            if (unusedPonders.Count > 0)
             {
-                int index = random.Next(_ponders.Count);
-                string message = _ponders[index];
+                int index = random.Next(unusedPonders.Count);
+                Ponder message = unusedPonders[index];
+                message.MarkAsUsed();
                 return message;
             }
-            return "No ponder found.";
+            return null;
         }
         
         private void DisplayPonders()
@@ -53,9 +57,16 @@ namespace Mindfulness
 
             while (DateTime.Now < endedAt)
             {
-                string ponder = DrawingPonder();
-                ShowSpinning(message: $"> {ponder} ", seconds: 5);
-                Console.WriteLine("");
+                Ponder ponder = DrawingPonder();
+                if (ponder != null)
+                {
+                    ShowSpinning(message: $"> {ponder.GetMessage()} ", seconds: 5);
+                    Console.WriteLine("");
+                }
+                else
+                {
+                    break;
+                }
             }
         }
 
