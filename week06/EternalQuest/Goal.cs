@@ -24,10 +24,7 @@ namespace EternalQuest
         [JsonPropertyName("isCompleted")]
         protected bool _isCompleted = false;
 
-        public Goal()
-        {
-            // pass
-        }
+        public Goal() { }
 
         public Goal(
             string name,

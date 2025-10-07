@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace EternalQuest
 {
-    public class ChecklistGoal: Goal
+    public class ChecklistGoal : Goal
     {
         [JsonInclude]
         [JsonPropertyName("amountCompleted")]
@@ -18,10 +18,7 @@ namespace EternalQuest
         [JsonPropertyName("bonus")]
         protected int _bonus;
 
-        public ChecklistGoal()
-        {
-            // pass
-        }
+        public ChecklistGoal() { }
 
         public ChecklistGoal(
             string name,

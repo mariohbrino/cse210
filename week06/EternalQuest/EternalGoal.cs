@@ -4,10 +4,7 @@ namespace EternalQuest
 {
     public class EternalGoal : Goal
     {
-        public EternalGoal()
-        {
-            // pass
-        }
+        public EternalGoal() { }
 
         public EternalGoal(
             string name,

@@ -10,7 +10,7 @@ namespace EternalQuest
         private Action _callback { get; set; } = null;
         private bool _quit { get; set; } = false;
 
-        public Choice() {}
+        public Choice() { }
 
         public Choice(int index, string name)
         {

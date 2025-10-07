@@ -7,12 +7,12 @@ namespace EternalQuest
     {
         [JsonPropertyName("score")]
         public int Score { get; set; }
-        
+
         [JsonPropertyName("goals")]
         public List<Goal> Goals { get; set; }
 
         public GoalData() { }
-        
+
         public GoalData(int score, List<Goal> goals)
         {
             Score = score;

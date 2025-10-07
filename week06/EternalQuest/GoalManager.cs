@@ -213,12 +213,12 @@ namespace EternalQuest
                 {
                     string jsonString = File.ReadAllText(filepath);
                     GoalData goalData = JsonSerializer.Deserialize<GoalData>(jsonString, _jsonOptions);
-                    
+
                     if (goalData != null)
                     {
                         _goals = goalData.Goals ?? [];
                         _score = goalData.Score;
-                        
+
                         Console.WriteLine($"\n> Goals loaded from {filepath}");
                         Console.WriteLine($"> Loaded {_goals.Count} goals with score {_score}");
                     }
