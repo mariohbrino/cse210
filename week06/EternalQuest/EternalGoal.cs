@@ -24,10 +24,5 @@ namespace EternalQuest
         {
             return base.GetPoints();
         }
-
-        public override string GetStringRepresentation()
-        {
-            return $"Goal (shortName: {GetShortName()}, description: {GetDescription()}, points: {GetPoints()})";
-        }
     }
 }

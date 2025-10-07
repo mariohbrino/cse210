@@ -124,7 +124,5 @@ namespace EternalQuest
         {
             return $"[{(IsCompleted() ? 'X' : ' ')}] {_shortName} ({_description})";
         }
-
-        public abstract string GetStringRepresentation();
     }
 }

@@ -73,10 +73,5 @@ namespace EternalQuest
         {
             return $"[{(IsCompleted() ? 'X' : ' ')}] {GetShortName()} ({GetDescription()}) -- Currently completed: {_amountCompleted}/{_target}";
         }
-
-        public override string GetStringRepresentation()
-        {
-            return $"Goal (shortName: {GetShortName()}, description: {GetDescription()}, points: {GetPoints()})";
-        }
     }
 }
