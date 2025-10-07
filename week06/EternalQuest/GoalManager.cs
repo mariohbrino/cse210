@@ -97,6 +97,12 @@ namespace EternalQuest
             menu.SetMenuList(
                 [
                     new Choice(
+                        index: 0,
+                        name: "Go back",
+                        quit: true,
+                        callback: () => Console.WriteLine("\n> Going back to main menu.")
+                    ),
+                    new Choice(
                         index: 1,
                         name: "Simple Goal",
                         quit: true,
