@@ -224,12 +224,12 @@ namespace EternalQuest
                     }
                     else
                     {
-                        Console.WriteLine("\n > Failed to load goals - invalid file format.");
+                        Console.WriteLine("\n> Failed to load goals - invalid file format.");
                     }
                 }
                 else
                 {
-                    Console.WriteLine($"\n > File {filepath} not found.");
+                    Console.WriteLine($"\n> File {filepath} not found.");
                 }
             }
             catch (JsonException exception)
